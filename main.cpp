@@ -1,4 +1,4 @@
-/*main.c*/
+/*main.cpp*/
 
 /**
   * @brief simple debugger for nuPython programs.
@@ -6,8 +6,6 @@
   * To run:
   *
   *   ./a.out filename.py
-  *
-  * @note SOLUTION
   *
   * @author original template by Prof. Joe Hummel
   * @author ?
@@ -39,6 +37,28 @@ extern "C" {
   #include "programgraph.h"
   #include "ram.h"
   #include "execute.h"
+}
+
+
+/**
+  * @brief help command
+  *
+  * @return void
+  */
+void help_command()
+{
+  cout << "Available commands:" << endl;
+  cout << "h -> help with list of commands" << endl;
+  cout << "q -> quit the debugger" << endl;
+  cout << "b n -> set breakpoint at line n" << endl;
+  cout << "rb n -> remove breakpoint at line n" << endl;
+  cout << "cb -> clear all breakpoints" << endl;
+  cout << "lb -> list all breakpoints" << endl;
+  cout << "pg -> print entire program graph" << endl;
+  cout << "r -> run the program from the current stmt" << endl;
+  cout << "s -> step by executing the current stmt" << endl;
+  cout << "sm -> show memory contents" << endl;
+  cout << "w -> what line will execute next?" << endl;
 }
 
 
@@ -102,14 +122,7 @@ int main(int argc, char* argv[])
       break;
     }
     else if (cmd == "h") { 
-      cout << "Available commands:" << endl;
-      cout << "h -> help with list of commands" << endl;
-      cout << "q -> quit the debugger" << endl;
-      cout << "pg -> print entire program graph" << endl;
-      cout << "r -> run the program from the current stmt" << endl;
-      cout << "s [line] -> step to next stmt or step to line number" << endl;
-      cout << "sm -> show memory contents" << endl;
-      cout << "w -> what line will execute next?" << endl;
+      help_command();
     }
     else {
       cout << "unknown command" << endl;

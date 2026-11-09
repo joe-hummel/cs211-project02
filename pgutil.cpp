@@ -1,4 +1,4 @@
-/*pgutil.c*/
+/*pgutil.cpp*/
 
 /**
   * @brief program graph utility functions
